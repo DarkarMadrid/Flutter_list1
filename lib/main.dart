@@ -1,42 +1,30 @@
 import 'package:flutter/material.dart';
+import 'screens/screens.dart';
+//El nombre de import 'package:flutternavegacion/screens/secondary.dart'; se saca de pubspec.yaml
+//esto importa las pantallas del proyecto
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  // This widget is the root of your application.
+// This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+//Quitamos debug
+      debugShowCheckedModeBanner: false,
+      initialRoute: "/list",
+      routes: {"/list": (BuildContext context) => List()},
+
+//Configurar tema
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+          primarySwatch: Colors.deepPurple,
+          accentColor: Color(0xd84e20bc),
+//configurar texto
+          textTheme: TextTheme(
+            bodyText2: TextStyle(color: Color(0xff280c74), fontSize: 30),
+          )),
+//Pagina inicial
     );
   }
 }
